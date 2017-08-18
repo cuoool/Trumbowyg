@@ -1210,7 +1210,7 @@ jQuery.trumbowyg = {
                     value: target
                 }
             }, function (v) { // v is value
-                var link = $(['<a href="', v.url, '">', v.text, '</a>'].join(''));
+                var link = $(['<a href="', /^http|https|ftp?:\/\//.test(v.url) ? v.url : '//' + v.url, '">', v.text, '</a>'].join(''));
                 if (v.title.length > 0) {
                     link.attr('title', v.title);
                 }
